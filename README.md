@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Welcome to SLATE CMS, a comprehensive Claims Management System designed specifically for the legal sector. SLATE CMS aims to streamline processes and enhance productivity for law firms and claims management agencies by providing a robust and intuitive CRM platform.
+Welcome to SLATE, a comprehensive Claims Management System designed specifically for the legal sector. SLATE aims to streamline processes and enhance productivity for law firms and claims management agencies by providing a robust and intuitive CRM platform.
 
 ## About This Project
 
-SLATE CMS is a closed-source project developed with a focus on cleanliness, efficiency, and seamless integration with the Microsoft platform. The project is led by myself and is part of a journey to create a high-quality CRM solution tailored to the unique needs of legal professionals.
+SLATE is a closed-source project developed with a focus on cleanliness, efficiency, and seamless integration with the Microsoft platform. The project is led by myself and is part of a journey to create a high-quality CRM solution tailored to the unique needs of legal professionals.
 
 ## Key Features
 
@@ -22,20 +22,20 @@ To get started with SLATE CMS:
 
 1. Clone the repository to your local machine.
 2. Follow the installation instructions provided in the [documentation](docs/INSTALLATION.md).
-3. Configure SLATE CMS to integrate with Microsoft Azure and EntraID SSO as needed.
-4. Begin exploring the features and functionalities of SLATE CMS.
+3. Configure SLATE to integrate with Microsoft Azure and EntraID SSO as needed.
+4. Begin exploring the features and functionalities of SLATE.
 
 ## How to Contribute
 
-While SLATE CMS is currently a closed-source project, contributions from the community are welcome in the form of feedback, suggestions, and bug reports. If you encounter any issues or have ideas for improvement, please open an issue on GitHub.
+While SLATE is currently a closed-source project, contributions from the community are welcome in the form of feedback, suggestions, and bug reports. If you encounter any issues or have ideas for improvement, please open an issue on GitHub.
 
 ## Acknowledgments
 
-I would like to express my gratitude to OpenAI for their invaluable guidance and support in the development of SLATE CMS. Their expertise and encouragement have been instrumental in shaping this project.
+I would like to express my gratitude to OpenAI for their invaluable guidance and support in the development of SLATE. Their expertise and encouragement have been instrumental in shaping this project.
 
 ## Contact
 
-For questions, suggestions, or collaboration opportunities, please contact grahamSpecter at grahamspecter1@gmail.com.
+For questions, suggestions, or collaboration opportunities, please contact grahamSpecter (alias for the owner of grahamspecter1@gmail.com in the interest of privacy) at grahamspecter1@gmail.com.
 
 ## License
 
