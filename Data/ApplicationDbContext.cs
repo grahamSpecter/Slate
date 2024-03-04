@@ -5,7 +5,7 @@ using Slate.Models;
 
 namespace Slate.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -22,7 +22,7 @@ namespace Slate.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=Slate;Trusted_Connection=True;MultipleActiveResultSets=true");
+                optionsBuilder.UseSqlServer("Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Trusted_Connection=True;MultipleActiveResultSets=true");
             }
         }
     }

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Slate.Models;
+using Slate.Data;
 using System.Diagnostics;
 
 namespace Slate.Controllers

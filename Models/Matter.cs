@@ -30,7 +30,7 @@ namespace Slate.Models
     public static void Add(Matter matter)
         {
             // Create a connection string
-            string connectionString = "Data Source=. ;Initial Catalog=Slate;Integrated Security=True";
+            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Trusted_Connection=True;MultipleActiveResultSets=true;";
 
             // Create a SQL query
             string query = "INSERT INTO MATTERS (EntityID, MatterType, MatterStatus, CreatedAt, LastUpdatedAt) VALUES (@EntityID, @MatterType, @MatterStatus, @CreatedAt, @LastUpdatedAt)";

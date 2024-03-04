@@ -20,14 +20,21 @@ namespace Slate
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            var connectionString = Configuration.GetConnectionString("Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\"Trusted_Connection=True;MultipleActiveResultSets=true") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddDefaultIdentity<ApplicationUser>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = true;
+                // Other identity options...
+            })
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
+
+            // Add other identity configurations if needed
+            services.AddScoped<UserManager<ApplicationUser>>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

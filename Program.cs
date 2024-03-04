@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Slate;
+using Slate.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -85,7 +85,7 @@ namespace Slate.Models
         public static void Update(Entity entity)
         {
             // Create a connection string
-            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=Clients;Integrated Security=True";
+            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Integrated Security=True";
 
             // Create a SQL query
             string query = "UPDATE Entities SET EntityID = @EntityID, EntityTypeID = EntityTypeID, FirstName = @FirstName, Surname = @Surname, DOB = @DOB, AddressLine1 = @AddressLine1, AddressLine2 = @AddressLine2, Town = @Town, Postcode = @Postcode, PhoneNumber = @PhoneNumber, MobileNumber = @MobileNumber, EmailAddress = @EmailAddress, createdAt = @CreatedAt, UpdatedAt = @UpdatedAt WHERE Id = @Id";
