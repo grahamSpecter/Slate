@@ -48,7 +48,7 @@ namespace Slate.Models
         public static void Add(Entity entity)
         {
             // Create a connection string
-            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate CRM\";Integrated Security=True";
+            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Integrated Security=True";
 
             // Create a SQL query
             string query = "INSERT INTO Entities (EntityID, EntityTypeID, FirstName, Surname, DOB, AddressLine1, AddressLine2, Town, Postcode, PhoneNumber, MobileNumber, EmailAddress, CreatedAt, UpdatedAt) VALUES (@FirstName, @Surname, @DOB, @AddressLine1, @AddressLine2, @Town, @Postcode, @PhoneNumber, @MobileNumber, @EmailAddress, @CreatedAt, @UpdatedAt)";
@@ -120,7 +120,7 @@ namespace Slate.Models
         public static void Delete(string EntityID)
         {
             // Create a connection string
-            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=Clients;Integrated Security=True";
+            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Integrated Security=True";
 
             // Create a SQL query
             string query = "DELETE FROM Entities WHERE EntityID = @EntityId";
@@ -209,7 +209,7 @@ namespace Slate.Models
         public static List<Entity> GetAll()
         {
             // Create a connection string
-            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate CRM\";Integrated Security=True";
+            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Integrated Security=True";
 
             // Create a SQL query
             string query = "SELECT * FROM Entites";
