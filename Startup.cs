@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Slate.Data;
+using Slate.Models;
 
 namespace Slate
 {
@@ -20,10 +21,13 @@ namespace Slate
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration.GetConnectionString("Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\"Trusted_Connection=True;MultipleActiveResultSets=true") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            var connectionString = Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+            Entity.Initialize(Configuration);
+            Matter.Initialize(Configuration);
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString));
+               options.UseSqlServer(connectionString));
 
             services.AddDefaultIdentity<ApplicationUser>(options =>
             {

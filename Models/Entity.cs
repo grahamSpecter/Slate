@@ -7,6 +7,12 @@ namespace Slate.Models
 {
     public class Entity
     {
+        private static IConfiguration _configuration;
+
+        public static void Initialize(IConfiguration configuration)
+        {
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+        }
         // Properties
         public string EntityID { get; set; }
         public int EntityTypeID { get; set; }
@@ -48,7 +54,7 @@ namespace Slate.Models
         public static void Add(Entity entity)
         {
             // Create a connection string
-            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Integrated Security=True";
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             // Create a SQL query
             string query = "INSERT INTO Entities (EntityID, EntityTypeID, FirstName, Surname, DOB, AddressLine1, AddressLine2, Town, Postcode, PhoneNumber, MobileNumber, EmailAddress, CreatedAt, UpdatedAt) VALUES (@FirstName, @Surname, @DOB, @AddressLine1, @AddressLine2, @Town, @Postcode, @PhoneNumber, @MobileNumber, @EmailAddress, @CreatedAt, @UpdatedAt)";
@@ -85,7 +91,7 @@ namespace Slate.Models
         public static void Update(Entity entity)
         {
             // Create a connection string
-            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Integrated Security=True";
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             // Create a SQL query
             string query = "UPDATE Entities SET EntityID = @EntityID, EntityTypeID = EntityTypeID, FirstName = @FirstName, Surname = @Surname, DOB = @DOB, AddressLine1 = @AddressLine1, AddressLine2 = @AddressLine2, Town = @Town, Postcode = @Postcode, PhoneNumber = @PhoneNumber, MobileNumber = @MobileNumber, EmailAddress = @EmailAddress, createdAt = @CreatedAt, UpdatedAt = @UpdatedAt WHERE Id = @Id";
@@ -120,7 +126,7 @@ namespace Slate.Models
         public static void Delete(string EntityID)
         {
             // Create a connection string
-            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Integrated Security=True";
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             // Create a SQL query
             string query = "DELETE FROM Entities WHERE EntityID = @EntityId";
@@ -145,7 +151,7 @@ namespace Slate.Models
         public static Entity GetById(string entityId)
         {
             // Create a connection string
-            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Integrated Security=True";
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             // Create a SQL query
             string query = "SELECT * FROM Entities WHERE EntityID = @EntityID";
@@ -209,7 +215,7 @@ namespace Slate.Models
         public static List<Entity> GetAll()
         {
             // Create a connection string
-            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Integrated Security=True";
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             // Create a SQL query
             string query = "SELECT * FROM Entites";

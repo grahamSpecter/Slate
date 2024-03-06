@@ -4,6 +4,12 @@ namespace Slate.Models
 {
     public class Matter
     {
+        private static IConfiguration _configuration;
+
+        public static void Initialize(IConfiguration configuration)
+        {
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+        }
         // Properties
         public int MatterID { get; set; }
         public string EntityID { get; set; }
@@ -30,7 +36,7 @@ namespace Slate.Models
     public static void Add(Matter matter)
         {
             // Create a connection string
-            string connectionString = "Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=\"Slate\";Trusted_Connection=True;MultipleActiveResultSets=true;";
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             // Create a SQL query
             string query = "INSERT INTO MATTERS (EntityID, MatterType, MatterStatus, CreatedAt, LastUpdatedAt) VALUES (@EntityID, @MatterType, @MatterStatus, @CreatedAt, @LastUpdatedAt)";
