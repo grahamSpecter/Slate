@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Slate.Data;
 using Slate.Models;
+using Slate.Services;
 
 namespace Slate
 {
@@ -23,19 +24,18 @@ namespace Slate
         {
             var connectionString = Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-            Entity.Initialize(Configuration);
-            Matter.Initialize(Configuration);
-
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(connectionString));
 
-            services.AddDefaultIdentity<ApplicationUser>(options =>
-            
-                options.SignIn.RequireConfirmedAccount = true
-                // Other identity options...
-            )
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
+            // Add Identity services and specify ApplicationUser and ApplicationDbContext
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            // Register EntityService
+            services.AddScoped<EntityService>();
+
+            // Register MatterService
+            services.AddScoped<MatterService>();
 
             // Add other identity configurations if needed
 
