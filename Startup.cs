@@ -30,15 +30,14 @@ namespace Slate
                options.UseSqlServer(connectionString));
 
             services.AddDefaultIdentity<ApplicationUser>(options =>
-            {
-                options.SignIn.RequireConfirmedAccount = true;
+            
+                options.SignIn.RequireConfirmedAccount = true
                 // Other identity options...
-            })
+            )
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
             // Add other identity configurations if needed
-            services.AddScoped<UserManager<ApplicationUser>>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

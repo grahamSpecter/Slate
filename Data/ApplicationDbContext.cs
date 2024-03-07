@@ -19,13 +19,5 @@ namespace Slate.Data
         public DbSet<Matter> Matters { get; set; }
 
         // Additional DbSet properties for other entities if needed
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=WINDOWS-7U6TQBQ\\SQLEXPRESS;Database=Slate;Trusted_Connection=True;MultipleActiveResultSets=true");
-            }
-        }
     }
 }
